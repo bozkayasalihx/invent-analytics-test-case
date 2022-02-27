@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@chakra-ui/react";
+import React, { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import Details from "./components/Details";
+import FallBack from "./components/FallBack";
+import Input from "./components/Input";
+import NextPage from "./components/NextPage";
+import "./styles/container.css";
+const Table = lazy(() => import("./components/Table"));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className='container'>
+            <Routes>
+                <Route
+                    path='/'
+                    element={
+                        <Suspense fallback={<FallBack />}>
+                            <Input />
+                            <Table />
+                            <NextPage />
+                        </Suspense>
+                    }
+                />
+                <Route path='details'>
+                    <Route
+                        path=':imdbID'
+                        element={
+                            <Suspense fallback={<FallBack />}>
+                                <Details />
+                            </Suspense>
+                        }
+                    />
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
