@@ -8,10 +8,10 @@ import {
     Text,
     Th,
     Thead,
-    Tr,
+    Tr
 } from "@chakra-ui/react";
-import { Link, useParams } from "react-router-dom";
 import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { useAppSelector } from "../store/hooks";
 import { Years } from "../utils/years";
 import Selection from "./Menu";

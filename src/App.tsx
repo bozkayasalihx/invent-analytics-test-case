@@ -1,5 +1,4 @@
-import { Box } from "@chakra-ui/react";
-import React, { Suspense, lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Details from "./components/Details";
 import FallBack from "./components/FallBack";

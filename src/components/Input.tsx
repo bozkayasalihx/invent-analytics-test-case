@@ -43,7 +43,7 @@ const Input: React.FC<InputProps> = () => {
             }
         }
         fn();
-    }, [dispatch, page]);
+    }, [dispatch, page, type]);
 
     const handleSubmit = useCallback(
         async (ev: React.FormEvent<HTMLFormElement>) => {
